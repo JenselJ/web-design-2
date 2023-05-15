@@ -12,7 +12,27 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
-#patternImage {
+/* #patternImage {
   transform: translate(-35px, 10px);
+  border: solid red 1px;
+  position: absolute;
+  left: 0%;
+  top: 0%;
   display: none;
+} */
+
+.broken-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#broken {
+  font-size: 100px;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  font-weight: 700;
 }

@@ -7,6 +7,11 @@ canvas.height = 440;
 ctx.lineWidth = 10;
 ctx.strokeStyle = "magenta";
 
+// canvas shadows
+ctx.shadowOffsetX = 2;
+ctx.shadowOffsetY = 2;
+ctx.shadowColor = "white";
+
 // gradients
 const gradient1 = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
 gradient1.addColorStop("0.2", "pink");
@@ -35,8 +40,24 @@ gradient2.addColorStop("0.4", "red");
 gradient2.addColorStop("0.6", "blue");
 
 // canvas pattern
-const patternImage = document.getElementById("patternImage");
-const pattern1 = ctx.createPattern(patternImage, "no-repeat");
+const img = document.getElementById("broken");
+// let loadedImageWidth = img.width;
+// let loadedImageHeight = img.height;
+
+// let scale_factor = Math.min(
+//   canvas.width / img.width,
+//   canvas.height / img.height
+// );
+
+// let newWidth = img.width * scale_factor;
+// let newHeight = img.height * scale_factor;
+// let x = canvas.width / 2 - newWidth / 2;
+// let y = canvas.height / 2 - newHeight / 2;
+
+// img.width = x;
+// img.height = y;
+
+const pattern1 = ctx.createPattern(img, "no-repeat");
 
 ctx.strokeStyle = pattern1;
 
