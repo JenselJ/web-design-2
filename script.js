@@ -57,7 +57,7 @@ const img = document.getElementById("broken");
 // img.width = x;
 // img.height = y;
 
-const pattern1 = ctx.createPattern(img, "no-repeat");
+const pattern1 = ctx.createPattern(text, "no-repeat");
 
 ctx.strokeStyle = pattern1;
 
@@ -121,8 +121,43 @@ linesArray.forEach((line) => {
   line.draw(ctx);
 });
 
+class Effect {
+  constructor(canvas, ctx) {
+    this.context = ctx;
+    this.canvas = canvas;
+    this.width = this.canvas.width;
+    this.height = this.canvas.height;
+    this.init();
+  }
+
+  drawText() {
+    this.context.font = "250px Impact";
+    this.context.textAlign = "center";
+    this.context.textBaseline = "middle";
+    this.context.fillStyle = "black";
+    const text = this.context.fillText(
+      "BROKEN",
+      this.width * 0.5,
+      this.height * 0.5,
+      this.width * 0.9
+    );
+  }
+
+  init() {
+    this.drawText();
+  }
+
+  render() {
+    this.drawText();
+  }
+}
+
+const effect = new Effect(canvas, ctx);
+
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  effect.render();
+
   //draw line
   linesArray.forEach((line) => {
     line.draw(ctx);
